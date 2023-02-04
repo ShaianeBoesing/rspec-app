@@ -11,8 +11,10 @@ FactoryBot.define do
       sequence(:position) { |n| n }
     end
 
-    trait :address do 
-      sequence(:address, 'A') { |n| "Rua #{n}" }
+    address { Faker::Address.street_address }
+
+    trait :favorite do 
+      sequence(:favorite, 'A') { |n| "Comida #{n}" }
     end
 
     name { Faker::Name.name }

@@ -86,14 +86,14 @@ RSpec.describe Customer, type: :model do
     ])
   end
 
-  it "Testing sequence positions with strings" do
-    customer1 = create(:customer, :address)
-    customer2 = create(:customer, :address)
-    customer3 = create(:customer, :address)
+  it "Testing sequence foods with strings" do
+    customer1 = create(:customer, :favorite)
+    customer2 = create(:customer, :favorite)
+    customer3 = create(:customer, :favorite)
     expect([customer1, customer2, customer3]).to match_array([
-      have_attributes(address: "Rua A"),
-      have_attributes(address: "Rua B"),
-      have_attributes(address: "Rua C")
+      have_attributes(favorite: "Comida A"),
+      have_attributes(favorite: "Comida B"),
+      have_attributes(favorite: "Comida C")
     ])
   end
 
