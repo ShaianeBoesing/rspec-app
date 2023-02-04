@@ -1,13 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
-  fixtures :customers
-
-   it 'Create a Customer with fixture' do 
-    customers = customers(:shaiane)
-    expect(customers.fullname).to start_with("Sr. ")
-  end 
-
+  
   it 'Create a Customer with factory' do 
     customers = create(:customer)
     expect(customers.fullname).to start_with("Sr. ")
