@@ -7,18 +7,23 @@ FactoryBot.define do
       quantity_orders { 3 }
     end
 
-    trait :position do 
-      sequence(:position) { |n| n }
-    end
-
+    name { Faker::Name.name }
+    email { name + "@gmail.com" }
     address { Faker::Address.street_address }
 
+    trait :with_orders do 
+      after(:create) do |customer, evaluator| 
+        create_list(:order, evaluator.quantity_orders, customer: customer)
+      end
+    end
+  
     trait :favorite do 
       sequence(:favorite, 'A') { |n| "Comida #{n}" }
     end
 
-    name { Faker::Name.name }
-    email { name + "@gmail.com" }
+    trait :position do 
+      sequence(:position) { |n| n }
+    end
 
     trait :male do 
       gender { 'M' }
@@ -46,12 +51,6 @@ FactoryBot.define do
 
     after(:build) do |customer, evaluator|
       customer.name.downcase! if evaluator.downcased
-    end
-
-    trait :with_orders do 
-      after(:create) do |customer, evaluator| 
-        create_list(:order, evaluator.quantity_orders, customer: customer)
-      end
     end
 
   end
