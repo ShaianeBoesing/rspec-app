@@ -7,7 +7,4 @@ describe 'HTTParty' do
     content_type = response.headers['content-type']
     expect(content_type).to match(/application\/json/)
   end
-
-  it 'content-type' do 
-  end
 end
