@@ -20,4 +20,13 @@ RSpec.describe Order, type: :model do
     orders = create_pair(:order)
     expect(orders.count).to eq(2)
   end
+
+  it "Has a list of attributes for orders" do 
+    orders = attributes_for_list(:order, 5)
+    expect(orders.count).to eq(5)
+  end
+
+  it "Has a stub of order that has not real objects and do not real functions" do 
+    expect { build_stubbed(:order) }.not_to change{ Order.all.size }   
+  end
 end
