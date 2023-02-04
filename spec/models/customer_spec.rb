@@ -101,5 +101,12 @@ RSpec.describe Customer, type: :model do
     expect(customer.orders.count).to eq(5)
   end
 
+  it 'travel_to' do 
+    travel_to Time.new(2002, 11, 24, 01, 04, 44) do 
+      @customer = create(:customer)
+    end
+
+    expect(@customer.created_at).to eq(Time.new(2002, 11, 24, 01, 04, 44))
+  end
 end
 
