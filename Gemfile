@@ -60,6 +60,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'devise'
   gem 'rails-controller-testing'
+  gem 'selenium-webdriver' 
 end
 
 group :development do
