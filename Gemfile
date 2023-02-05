@@ -48,7 +48,6 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem 'image_processing', '~> 1.2'
 group :test do 
-  gem 'vcr'
 end
 
 group :development, :test do
@@ -60,6 +59,8 @@ group :development, :test do
   gem 'faker'
   gem 'httparty'
   gem 'webmock'
+  gem 'vcr'
+  gem 'shoulda-matchers'
 end
 
 group :development do
