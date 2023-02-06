@@ -1,7 +1,9 @@
 require 'webmock/rspec'
 require 'vcr'
 require 'capybara'
+require "json_matchers/rspec"
 
+# VCR
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
@@ -9,6 +11,9 @@ VCR.configure do |config|
   config.filter_sensitive_data('<API-URL>') { 'https://jsonplaceholder.typicode.com' }
   config.ignore_localhost = true
 end
+
+# JSON MATCHERS
+JsonMatchers.schema_root = "spec/support/api/schemas"
 
 # Capybara
 Capybara.default_max_wait_time = 5

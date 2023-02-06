@@ -61,6 +61,8 @@ group :development, :test do
   gem 'devise'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver' 
+  gem 'rspec-json_expectations'
+  gem "json_matchers"
 end
 
 group :development do
